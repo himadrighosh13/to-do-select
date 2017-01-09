@@ -1,0 +1,25 @@
+{
+  "name": "to-do-select",
+  "version": "1.0.0",
+  "description": "A todo application with angularJS and more.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamhimadri/to-do-select.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12",
+    "path": "^0.12.7"
+  },
+  "author": "Himadri Ghosh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamhimadri/to-do-select/issues"
+  },
+  "homepage": "https://github.com/iamhimadri/to-do-select#readme"
+}
