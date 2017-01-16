@@ -29,9 +29,10 @@ app.config(function($routeProvider) {
 });
 
 app.service('DataService', ['APP_CONFIG', function(APP_CONFIG) {
-  console.log("Running DataService...");
+
   var _self = this;
   this.data = JSON.parse(localStorage.getItem(APP_CONFIG.APP_ID));
+
   if(this.data === null) {
     // Set DataService with seeded data
     this.data = {
