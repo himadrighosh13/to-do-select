@@ -1,0 +1,29 @@
+<div class="room-page">
+  <div class="col-xs-12">
+    <div class="add-room-container">
+      <form id="add-room" ng-submit="addRoom()">
+        <input type="text" placeholder="add new room..." ng-model="newRoom">
+      </form>
+    </div>
+    <div class="rooms-container row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3" ng-repeat="room in rooms track by $index" ng-click="goToRoom(room)">
+        <div class="each-room">
+          <h2 class="room-header">{{room.n}}</h2>
+          <span class="remove-item" ng-click="removeRoom(room); $event.stopPropagation();"> &#x2573</span>
+          <div class="details-container">
+            <div ng-show="getTotalCount(room.id)" class="count">
+              <span class="denominator">{{getCompletedCount(room.id)}}</span>
+              <span class="slash">/</span>
+              <span class="numerator">{{getTotalCount(room.id)}}</span>
+            </div>
+            <div ng-class="getTotalCount(room.id) ? 'completed' : 'no-task'">
+              {{ getTotalCount(room.id) ? 'Completed' : 'No todos yet'}}
+            </div>
+          </div>
+          <div class="p-bar" ng-style="{ width: (getCompletePercentage(room.id)) + '%' }"></div>
+        </div>
+      </div>
+      <div class="empty-list" ng-show="!rooms.length">Empty! Please add a new room.</div>
+    </div>
+  </div>
+</div>

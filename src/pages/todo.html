@@ -1,0 +1,28 @@
+<div class="todo-page">
+  <div class="col-xs-12">
+    <div class="room-details">
+        <div class="go-back" ng-click="backToRooms()">&#10094</div>
+        <div class="room-name">{{roomName}}</div>
+        <div class="p-bar" ng-style="{ width: (getCompletePercentage()) + '%' }"></div>
+    </div>
+
+    <div class="add-todo-container">
+      <form id="add-todo" ng-submit="addTodo()">
+        <input type="text" placeholder="add new todo..." ng-model="newTodo">
+      </form>
+    </div>
+
+    <div class="todos-container">
+      <div class="each-todo" ng-class="{'completed': todo.c}" ng-repeat="todo in todos track by $index">
+        <label class="todo-details">
+          <input type="checkbox" ng-model="todo.c" ng-change="toggleTodoAction(todo)"/>
+          <span class="custom-checkbox"></span>
+          <span class="todo-name">{{todo.n}}</span>
+        </label>
+        <span class="remove-item" ng-click="removeTodo(todo)"> &#x2573</span>
+      </div>
+      <div class="empty-list" ng-show="!todos.length">Empty! Please add a new todo.</div>
+    </div>
+
+  </div>
+</div>
