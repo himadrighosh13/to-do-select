@@ -4,27 +4,20 @@ var mongoose        = require("mongoose");
 var bodyParser      = require("body-parser");
 var sassMiddleware  = require('node-sass-middleware');
 
+var oneDay = 86400000;
+
 var CONFIG = require('./config/config');
 
 var app = express();
 
 app.use(bodyParser());
 
-//app.use(
-//  sassMiddleware({
-//    src: path.join(__dirname, 'public'),
-//    dest: path.join(__dirname, 'public'),
-//    prefix:  '/styles',
-//    debug: true
-//  })
-//);
+app.use(function(req, res, next) {
+  res.setHeader("Cache-Control", "public, max-age=3600");
+  return next();
+});
 
 app.use(express.static(__dirname + '/src'));
-
-//app.use('*', function(req, res) {
-//  // Use res.sendfile, as it streams instead of reading the file into memory.
-//  res.sendfile(__dirname + '/src/index.html');
-//});
 
 app.use(express.static(__dirname + '/public'));
 
